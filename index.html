@@ -1977,8 +1977,8 @@ html>body{padding:0}</style>
 #stillstem .ss-primary { background:var(--olive); color:var(--on-olive); border-radius:8px; min-height:42px; padding:0 14px; display:inline-flex; gap:7px; justify-content:center; align-items:center; font-weight:650 }
 #stillstem .ss-finish { background:var(--finish); color:var(--on-finish); min-height:34px; padding:0 9px; font-size:12px }
 #stillstem .ss-finish svg { width:13px; height:13px }
-#stillstem .ss-workspace { display:grid; grid-template-columns:minmax(170px,21%) minmax(0,1fr) minmax(164px,18%); align-items:stretch; position:relative }
-#stillstem .ss-library,#stillstem .ss-inspector { padding:17px 13px 14px; min-width:0 }
+#stillstem .ss-workspace { display:grid; grid-template-columns:minmax(170px,21%) minmax(0,1fr) minmax(164px,18%); grid-template-rows:minmax(0,1fr); height:clamp(360px,calc(100dvh - 116px),900px); min-height:0; align-items:stretch; position:relative }
+#stillstem .ss-library,#stillstem .ss-inspector { padding:17px 13px 14px; min-width:0; min-height:0; overflow-y:auto; overscroll-behavior:contain; scrollbar-gutter:stable }
 #stillstem .ss-library { border-right:1px solid var(--edge) }
 #stillstem .ss-inspector { border-left:1px solid var(--edge) }
 #stillstem h2 { font:500 25px/1.05 var(--display); letter-spacing:-.045em }
@@ -2002,16 +2002,16 @@ html>body{padding:0}</style>
 #stillstem .ss-material[draggable=true] { cursor:grab }
 #stillstem .ss-library-empty { grid-column:1/-1; color:var(--soft); font-size:12px; padding:10px 0 }
 #stillstem .ss-tile { position:relative; width:100%; height:67px; border-radius:7px; background:var(--tile); display:grid; place-items:center; overflow:hidden }
-#stillstem .ss-tile img { height:82%; width:80%; object-fit:contain; pointer-events:none; user-select:none }
+#stillstem .ss-tile img { position:absolute; inset:9% 10%; height:82%; width:80%; min-height:0; object-fit:contain; pointer-events:none; user-select:none }
 #stillstem .ss-tile .ss-plus { display:grid; place-items:center; width:17px; height:17px; position:absolute; right:4px; bottom:4px; border:1px solid var(--edge); background:var(--paper); border-radius:50%; color:var(--olive) }
 #stillstem .ss-tile .ss-plus svg { width:11px; height:11px }
 #stillstem .ss-material[aria-pressed=true] .ss-tile { box-shadow:inset 0 0 0 2px var(--olive) }
 #stillstem .ss-material-name { font-size:11px; line-height:1.2; min-height:15px; overflow-wrap:anywhere }
-#stillstem .ss-center { min-width:0; background:var(--work); padding:16px 12px 9px; display:flex; flex-direction:column; align-items:stretch; gap:8px }
+#stillstem .ss-center { min-width:0; min-height:0; background:var(--work); padding:16px 12px 9px; display:flex; flex-direction:column; align-items:stretch; gap:8px }
 #stillstem h1 { font:500 clamp(25px,4.6cqw,43px)/1.02 var(--display); letter-spacing:-.06em; margin-top:4px }
 #stillstem .ss-icon { width:34px; height:34px; display:grid; place-items:center; color:var(--soft); border:1px solid var(--edge); border-radius:7px; background:var(--paper) }
-#stillstem .ss-board-wrap { display:grid; place-items:center; flex:1 }
-#stillstem .ss-board { position:relative; isolation:isolate; overflow:hidden; width:min(100%,430px); aspect-ratio:4/5; border-radius:3px; box-shadow:0 1px 2px #34312124,0 8px 20px #37322220; background:radial-gradient(ellipse at 18% 2%, var(--stage-light),transparent 72%), linear-gradient(180deg, var(--stage-wall) 0 73%, var(--stage-floor) 73% 100%); touch-action:pan-y }
+#stillstem .ss-board-wrap { display:grid; place-items:center; flex:1; min-width:0; min-height:0; container-type:size }
+#stillstem .ss-board { position:relative; isolation:isolate; overflow:hidden; width:min(100%,430px,80cqh); aspect-ratio:4/5; border-radius:3px; box-shadow:0 1px 2px #34312124,0 8px 20px #37322220; background:radial-gradient(ellipse at 18% 2%, var(--stage-light),transparent 72%), linear-gradient(180deg, var(--stage-wall) 0 73%, var(--stage-floor) 73% 100%); touch-action:pan-y }
 #stillstem .ss-board[data-dropping=true] { outline:2px dashed var(--olive); outline-offset:3px }
 #stillstem .ss-board::after { content:""; position:absolute; inset:0; z-index:-1; pointer-events:none; opacity:.5; background:repeating-linear-gradient(113deg,transparent 0 2px,#8f765d10 2px 3px,transparent 3px 5px),radial-gradient(ellipse at 85% 82%,#624a2e1b,transparent 70%) }
 #stillstem [data-bg=linen] { --stage-light:#fff7e8; --stage-wall:#e6dcc9; --stage-floor:#d8c9af }
@@ -2131,9 +2131,9 @@ html>body{padding:0}</style>
 #stillstem .ss-app.is-phone .ss-header-actions { gap:2px }
 #stillstem .ss-app.is-phone .ss-header-actions > [data-action=redo] { display:none }
 #stillstem .ss-app.is-phone .ss-nav .ss-phone-redo { display:flex }
-#stillstem .ss-app.is-phone .ss-workspace { display:grid; grid-template-columns:minmax(0,1fr) }
+#stillstem .ss-app.is-phone .ss-workspace { display:grid; grid-template-columns:minmax(0,1fr); grid-template-rows:minmax(0,1fr) auto }
 #stillstem .ss-app.is-phone .ss-center { padding:10px 9px 8px; gap:7px }
-#stillstem .ss-app.is-phone .ss-board { width:min(100%,350px) }
+#stillstem .ss-app.is-phone .ss-board { width:min(100%,350px,80cqh) }
 #stillstem .ss-app.is-phone .ss-object-tools button,#stillstem .ss-app.is-phone .ss-handle,#stillstem .ss-app.is-phone .ss-canvas-add { min-width:44px; min-height:44px }
 #stillstem .ss-app.is-phone .ss-library,#stillstem .ss-app.is-phone .ss-inspector { display:none; position:absolute; z-index:3; inset:auto 0 53px; max-height:70%; overflow:auto; overscroll-behavior:contain; padding:9px 12px 14px; border:1px solid var(--edge); border-radius:13px 13px 0 0; background:var(--paper); box-shadow:0 -6px 26px #37322220 }
 #stillstem .ss-app.is-phone[data-tray=library] .ss-library,#stillstem .ss-app.is-phone[data-tray=edit] .ss-inspector { display:block }
